@@ -3,19 +3,21 @@ import SingleTodo from './singleTodo';
 
 class TodoList extends Component{
     state = {
-        todos: [
-            {id: 1, content: 'Todo item 1', done: true},
-            {id: 2, content: 'Todo item 2', done: true},
-            {id: 3, content: 'Todo item 3', done: true},
-            {id: 4, content: 'Todo item 4', done: true},
-            {id: 5, content: 'Todo item 5', done: true}
-        ]
+        todos: this.props.todos
     }
+    
+    componentDidMount(){
+        this.setState({
+            todos: this.props.todos
+        });
+    }
+
     render(){
-        const { todos } = this.state;
+        const { todos } = this.props;
+        let counter = 1;
         const allTodos = todos.map((todo) => {
             return(
-                <SingleTodo key={todo.id} todo={todo} />
+                <SingleTodo key={todo.id} todo={todo} counter={counter++}/>
             )
         });
 

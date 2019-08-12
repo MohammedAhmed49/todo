@@ -2,11 +2,11 @@ import React from 'react';
 
 const singleTodo = (props) => {
 
-    const { todo } = props;
+    const { todo,counter } = props;
     
     return(
         <li className="list-group-item">
-            {todo.id}. {todo.content}
+            {counter}. {todo.content}
         </li>
     )
 }
