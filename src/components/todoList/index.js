@@ -13,11 +13,11 @@ class TodoList extends Component{
     }
 
     render(){
-        const { todos } = this.props;
+        const { todos, editTodo } = this.props;
         let counter = 1;
         const allTodos = todos.map((todo) => {
             return(
-                <SingleTodo key={todo.id} todo={todo} counter={counter++}/>
+                <SingleTodo key={todo.id} todo={todo} counter={counter++} editTodo={editTodo}/>
             )
         });
 

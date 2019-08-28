@@ -29,13 +29,27 @@ class todoApp extends Component{
             todos: [...todos, todo]
         })
     }
+
+    editTodo = (todo) => {
+        let todos = this.state.todos;
+        let newTodos = todos.map((item) => {
+            if(todo.id === item.id){
+                return todo;
+            } else {
+                return item;
+            }
+        });
+        this.setState({
+            todos: newTodos
+        })
+        console.log(newTodos);
+    }
     render(){
         const { todos } = this.state;
-
         return(
             <div>
                 <h1 className="text-center my-4">Todo app</h1>
-                <TodoList todos={todos}/>
+                <TodoList todos={todos} editTodo={this.editTodo}/>
                 <AddTodo addTodo={this.addTodo}/>
             </div>
         )

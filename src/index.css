@@ -16,6 +16,27 @@ code {
   border-radius: 5px;
   padding: 20px;
   color: #10559A;
+  display: flex;
+  justify-content: space-between;
+}
+.list-group-flush .list-group-item .todo{
+  flex-grow: 1;
+}
+.list-group-flush .list-group-item input[type="text"]{
+  border-radius: 5px;
+  border: 1px solid #10559A;
+  padding: 5px 10px;
+  width: 90%;
+}
+.list-group-flush .list-group-item .icons svg{
+  margin: 0 10px;
+  cursor: pointer;
+}
+.list-group-flush .list-group-item .icons .edit{
+  color: #10ce10;
+}
+.list-group-flush .list-group-item .icons .delete{
+  color: #da4242;
 }
 @media (min-width: 576px){
   .form-inline .form-group{

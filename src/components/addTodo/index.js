@@ -44,7 +44,7 @@ class addTodo extends Component{
                         <label htmlFor="todo" className="sr-only">New Todo</label>
                         <input type="text" value={this.state.todo.content} className="form-control" id="todo" placeholder="Add a new todo" onChange={this.handleChange}/>
                     </div>
-                    <button type="submit" className="btn btn-primary mb-2" onClick={this.addTodo}>Add</button>
+                    <button type="submit" className="btn btn-primary" onClick={this.addTodo}>Add</button>
                     
                 </form>
                 {error && <p>{error}</p>}
