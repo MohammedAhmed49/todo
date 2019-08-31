@@ -41,17 +41,21 @@ class singleTodo extends Component {
             //console.log(this.state.todo);
         }
     }
+
+    deleteTodo = (e) => {
+        this.props.deleteTodo(this.state.todo);
+    }
     render(){
         let { editMode, todo } = this.state;
         const { counter, editTodo } = this.props;
         
         return(
             <li className="list-group-item">
-                <div className="todo">{counter}. {!editMode ? todo.content : <><input type="text" value={todo.content} onChange={this.changeTodo}/> <input type="submit" value="edit" onClick={this.edit}/></> } </div>
+                <div className="todo">{counter}. {!editMode ? todo.content : <><form onSubmit={this.edit}><input type="text" value={todo.content} onChange={this.changeTodo}/> <input type="submit" value="edit"/></form></> } </div>
                 
                 <div className="icons">
                     <FontAwesomeIcon className="edit" icon="pencil-alt" onClick={this.editTodo}/>
-                    <FontAwesomeIcon className="delete" icon="trash" />
+                    <FontAwesomeIcon className="delete" icon="trash" onClick={this.deleteTodo} />
                 </div>
             </li>
         )

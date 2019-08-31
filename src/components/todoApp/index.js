@@ -27,7 +27,17 @@ class todoApp extends Component{
         todo.id = this.state.latestID;
         this.setState({
             todos: [...todos, todo]
-        })
+        });
+    }
+
+    deleteTodo = (todo) => {
+        let todos = this.state.todos.filter((item) => {
+            return item.id != todo.id;
+        });
+        this.setState({
+            todos: todos
+        });
+        console.log('deleted');
     }
 
     editTodo = (todo) => {
@@ -49,7 +59,7 @@ class todoApp extends Component{
         return(
             <div>
                 <h1 className="text-center my-4">Todo app</h1>
-                <TodoList todos={todos} editTodo={this.editTodo}/>
+                <TodoList todos={todos} editTodo={this.editTodo} deleteTodo={this.deleteTodo}/>
                 <AddTodo addTodo={this.addTodo}/>
             </div>
         )
