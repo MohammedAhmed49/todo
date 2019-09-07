@@ -9,8 +9,20 @@ let initialState = {
 }
 
 const todoReducer = (state = initialState, action) => {
-    console.log('todo reducer', state, action);
-    return state;
+    switch(action.type){
+        case 'ADD_TODO':
+            console.log('Todo Added');
+            return state;
+        case 'DELETE_TODO':
+            console.log('Todo Removed');
+            return state;
+        case 'EDIT_TODO':
+            console.log('Todo Edited');
+            return state;
+        default:
+            return state;
+    }
+    
 }
 
 export default todoReducer

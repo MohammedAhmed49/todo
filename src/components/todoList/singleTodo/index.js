@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { connect } from 'react-redux'
 
 
 class singleTodo extends Component {
@@ -21,6 +22,7 @@ class singleTodo extends Component {
                 content: newContent
             }
         }));
+        
     }
     edit = (e) => {
         e.preventDefault();
@@ -35,6 +37,7 @@ class singleTodo extends Component {
             }));
         } else {
             this.props.editTodo(this.state.todo);
+            this.props.dispatch({type: 'EDIT_TODO'});
             this.setState({
                 editMode: !this.state.editMode
             });
@@ -44,6 +47,7 @@ class singleTodo extends Component {
 
     deleteTodo = (e) => {
         this.props.deleteTodo(this.state.todo);
+        this.props.dispatch({type: 'DELETE_TODO'});
     }
     render(){
         let { editMode, todo } = this.state;
@@ -62,4 +66,10 @@ class singleTodo extends Component {
     }
 }
 
-export default singleTodo;
+function mapState(state){
+    return{
+        someTodo: state.todos
+    }
+}
+
+export default connect(mapState)(singleTodo);

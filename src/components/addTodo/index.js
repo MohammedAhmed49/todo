@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class addTodo extends Component{
     state = {
@@ -23,7 +24,8 @@ class addTodo extends Component{
                 todo:{
                     content: ''
                 }
-            })
+            });
+            this.props.dispatch({ type: 'ADD_TODO' });
         }
     }
     handleChange = (e) => {
@@ -53,4 +55,8 @@ class addTodo extends Component{
     }
 }
 
-export default addTodo;
+function mapState(state){
+    return{}
+}
+
+export default connect(mapState)(addTodo);
