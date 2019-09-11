@@ -14,10 +14,10 @@ const todoReducer = (state = initialState, action) => {
             console.log('Todo Added');
             return state;
         case 'DELETE_TODO':
-            console.log('Todo Removed');
+            console.log('Todo Removed', action.todo);
             return state;
         case 'EDIT_TODO':
-            console.log('Todo Edited');
+            console.log('Todo Edited', action.todo);
             return state;
         default:
             return state;

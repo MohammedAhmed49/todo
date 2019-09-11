@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SingleTodo from './singleTodo';
+import { connect } from 'react-redux';
 
 class TodoList extends Component{
     state = {
@@ -17,7 +18,7 @@ class TodoList extends Component{
         let counter = 1;
         const allTodos = todos.map((todo) => {
             return(
-                <SingleTodo key={todo.id} todo={todo} counter={counter++} editTodo={editTodo} deleteTodo={deleteTodo}/>
+                <SingleTodo key={todo.id} todo={todo} counter={counter++}/>
             )
         });
 
@@ -31,4 +32,10 @@ class TodoList extends Component{
     }
 }
 
-export default TodoList;
+function mapState(state){
+    return{
+        todos: state.todos
+    }
+}
+
+export default connect(mapState)(TodoList);

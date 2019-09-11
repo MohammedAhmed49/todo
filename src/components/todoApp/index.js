@@ -37,7 +37,6 @@ class todoApp extends Component{
         this.setState({
             todos: todos
         });
-        console.log('deleted');
     }
 
     editTodo = (todo) => {
@@ -52,14 +51,13 @@ class todoApp extends Component{
         this.setState({
             todos: newTodos
         })
-        console.log(newTodos);
     }
     render(){
         const { todos } = this.state;
         return(
             <div>
                 <h1 className="text-center my-4">Todo app</h1>
-                <TodoList todos={todos} editTodo={this.editTodo} deleteTodo={this.deleteTodo}/>
+                <TodoList editTodo={this.editTodo}/>
                 <AddTodo addTodo={this.addTodo}/>
             </div>
         )
