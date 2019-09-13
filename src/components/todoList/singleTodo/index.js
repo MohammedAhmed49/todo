@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
-import { editTodo, deleteTodo } from '../../../store/actions/todoActions'
+import { editTodoAction, deleteTodoAction } from '../../../store/actions/todoActions'
  
 
 class singleTodo extends Component {
@@ -37,7 +37,7 @@ class singleTodo extends Component {
                 editMode: !this.state.editMode
             }));
         } else {
-            this.props.editTodo(this.state.todo);
+            this.props.editTodoAction(this.state.todo);
             this.setState({
                 editMode: !this.state.editMode
             });
@@ -45,7 +45,7 @@ class singleTodo extends Component {
     }
 
     deleteTodo = (e) => {
-        this.props.deleteTodo(this.state.todo);
+        this.props.deleteTodoAction(this.state.todo);
     }
     render(){
         let { editMode, todo } = this.state;
@@ -70,8 +70,8 @@ function mapState(state){
     }
 }
 const mapDispatch = {
-    editTodo,
-    deleteTodo
+    editTodoAction,
+    deleteTodoAction
 }
 
 export default connect(mapState, mapDispatch)(singleTodo);

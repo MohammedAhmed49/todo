@@ -52,3 +52,16 @@ code {
     width: 200px;
   }
 }
+
+@media(max-width: 575px){
+  .form-inline{
+    display: block;
+    margin-top: 20px;
+  }
+  .form-inline .form-control{
+    width: 100%;
+  }
+  .form-inline .btn-primary{
+    width: 100%;
+  }
+}
